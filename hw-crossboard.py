@@ -2,6 +2,7 @@ board = list(['-'] * 3 for i in range(3))  # генератор двумерно
 
 
 def board_output():  # функция для вывода игрового поля
+    print()
     print('   ', end='')  # вывод отступа в левом верхнем углу равен одному символу и табуляции
     for i in range(3):  # вывод нумерации столбцов
         print(f'{i}', end='  ')
@@ -71,6 +72,7 @@ while True:  # игровой цикл | прерывается только в 
     board[r][c] = 'o'  # запись хода игрока
 
     if check_winner():  # проверка на победителя
+        board_output()
         sign = check_winner()
         if sign == 'o':
             print('\nПобедитель игрок 1!\nПоздравляю!')
@@ -86,6 +88,7 @@ while True:  # игровой цикл | прерывается только в 
     board[r][c] = 'x'
 
     if check_winner():
+        board_output()
         sign = check_winner()
         if sign == 'o':
             print('\nПобедитель игрок 1!\nПоздравляю!')
